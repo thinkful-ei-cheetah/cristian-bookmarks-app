@@ -6,32 +6,36 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Bookmarks App</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/grid.css">
 </head>
 <body>
-    <header role="banner" class="heading">
-        <h1>My Bookmarks</h1>
-    </header>
+    <div class="container">
+        <div class="col-12"></div>
+            <header role="banner" class="heading">
+                <h1>My Bookmarks</h1>
+            </header>
 
-    <main role="main" class="js-main">
-        <div class="top-container js-top-container ">
-            <button class="add-bookmark-button js-add-bookmark-button" type="button">Add Bookmark</button>
+            <main role="main" class="js-main">
+                <div class="top-container js-top-container ">
+                    <button class="add-bookmark-button js-add-bookmark-button" type="button">Add Bookmark</button>
 
-            <label for="ratings-select" class="min-rating-label js-min-rating-label">Select Minimum Rating:
-                <select id="ratings-select" name="min-ratings">
-                    <option class="js-rating-selected" value="1" selected>1 Star</option> 
-                    <option class="js-rating-selected" value="2" >2 Stars</option>
-                    <option class="js-rating-selected" value="3">3 Stars</option>
-                    <option class="js-rating-selected" value="4">4 Stars</option>
-                    <option class="js-rating-selected" value="5">5 Stars</option>
-                </select>
-            </label>
+                    <label for="ratings-select" class="min-rating-label js-min-rating-label">Minimum Rating:
+                        <select id="ratings-select" name="min-ratings">
+                            <option class="js-rating-selected" value="1" selected>1</option> 
+                            <option class="js-rating-selected" value="2" >2</option>
+                            <option class="js-rating-selected" value="3">3</option>
+                            <option class="js-rating-selected" value="4">4</option>
+                            <option class="js-rating-selected" value="5">5</option>
+                        </select>
+                    </label>
+                </div>
+                <div aria-label="error message" class="error-container js-error-container"></div>
+        
+                <ul aria-label="Bookmark List" class="bookmarks-list js-bookmarks-list"></ul>
+            </main>
         </div>
-        <div class="error-container js-error-container"></div>
-   
-        <ul class="bookmarks-list js-bookmarks-list">
-        </ul>
-    </main>
+    </div> 
     
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/cuid/1.3.8/browser-cuid.min.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>

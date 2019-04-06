@@ -14,41 +14,18 @@ const bookmarksList = (function(){
             </p>
             <p class="bookmark-description js-bookmark-description ${expandClass}">${bookmark.desc}</p>
             <p class="bookmark-link js-bookmark-link ${expandClass}"><a href="${bookmark.url}">Visit Site</a></p>
-            <p class="bookmark-rating js-bookmark-rating">Rating: ${bookmark.rating} Star(s)
+            <p class="bookmark-rating js-bookmark-rating">Rating: ${bookmark.rating}
                 <button type="button" class="expand-button js-expand-button">${expandButtonName}</button>
             </p>
         </li>`
-
-        // return `
-        // <li class="bookmark js-bookmark" data-bookmark-id="${bookmark.id}">
-        //     <p class="bookmark-title js-bookmark-title">${bookmark.title}
-        //         <button type="button" class="delete-button js-delete-button">Delete</button>
-        //     </p>
-        //     <p class="bookmark-rating js-bookmark-rating">Rating: ${bookmark.rating} Stars
-        //         <button type="button" class="expand-button js-expand-button">Expand</button>
-        //     </p>
-        // </li>`
     };
-
-    // function generateExpandedBookmarkElement(bookmark) {
-    //     return `
-    //     <li class="bookmark js-bookmark" data-bookmark-id="${bookmark.id}">
-    //         <p class="bookmark-title js-bookmark-title">${bookmark.title}
-    //             <button type="button" class="delete-button js-delete-button">Delete</button>
-    //         </p>
-    //         <p class="bookmark-description js-bookmark-description">${bookmark.desc}</p>
-    //         <p><a href="${bookmark.url}">Visit Site</a></p>
-    //         <p class="bookmark-rating js-bookmark-rating">Rating: ${bookmark.rating} Star(s)
-    //             <button type="button" class="expand-button js-expand-button">Expand</button>
-    //     </p>`
-    // };
 
     function generateAddFormElement() {
 
         return `
         <div class="add-form-container js-add-form-container">
-            <h3>Add Bookmark</h3>
-            <form id="js-add-bookmark-form" novalidate>
+            <h2>Add Bookmark</h2>
+            <form aria-label="Add Bookmark Form" id="js-add-bookmark-form" novalidate>
                 <div class="title-container">
                     <label for="bookmark-title">Title:</label><br>
                     <input type="text" name="title" id="bookmark-title" class="bookmark-title-input js-bookmark-title-input">
@@ -60,28 +37,34 @@ const bookmarksList = (function(){
                 </div>
 
                 <div class="description-container">
-                    <label for="bookmark-description">Description:</label>
+                    <label for="bookmark-description">Description:</label><br>
                     <textarea name="desc" id="bookmark-description" class="bookmark-description-input js-bookmark-description-input"></textarea>
                 </div>
+                
+                <fieldset class="rating-container">
+                    <legend id="rating-options">Rating:</legend>
+                    <input type="radio" name="rating" aria-labelledby="rating-options" id="bookmark-rating-1" class="bookmark-rating-input js-bookmark-rating-input" value="1"> 1<br>
 
-                <div class="rating-container">
-                    <label for="bookmark-rating">Rating:</label><br>
-                    <input type="radio" name="rating" id="bookmark-rating" class="bookmark-rating-input js-bookmark-rating-input" value="1"> 1 Star<br>
-                    <input type="radio" name="rating" id="bookmark-rating" class="bookmark-rating-input js-bookmark-rating-input" value="2"> 2 Stars<br>
-                    <input type="radio" name="rating" id="bookmark-rating" class="bookmark-rating-input js-bookmark-rating-input" value="3"> 3 Stars<br>
-                    <input type="radio" name="rating" id="bookmark-rating" class="bookmark-rating-input js-bookmark-rating-input" value="4"> 4 Stars<br>
-                    <input type="radio" name="rating" id="bookmark-rating" class="bookmark-rating-input js-bookmark-rating-input" value="5"> 5 Stars<br>
+                    <input type="radio" name="rating" aria-labelledby="rating-options" id="bookmark-rating-2" class="bookmark-rating-input js-bookmark-rating-input" value="2"> 2<br>
+
+                    <input type="radio" name="rating" aria-labelledby="rating-options" id="bookmark-rating-3" class="bookmark-rating-input js-bookmark-rating-input" value="3"> 3<br>
+
+                    <input type="radio" name="rating" aria-labelledby="rating-options" id="bookmark-rating-4" class="bookmark-rating-input js-bookmark-rating-input" value="4"> 4<br>
+
+                    <input type="radio" name="rating" aria-labelledby="rating-options" id="bookmark-rating-5" class="bookmark-rating-input js-bookmark-rating-input" value="5"> 5<br>
+                </fieldset>
+
+                <div class="form-buttons js-form-buttons">
+                    <button type="submit" class="add-bookmark-submit">Add Bookmark</button>
+                    <button type="button" class="cancel-button js-cancel-button">Done</button>
                 </div>
-
-                <button type="submit" class="add-bookmark-submit">Add Bookmark</button>
-                <button type="button" class="cancel-button js-cancel-button">Cancel</button>
             </form>
         </div>`
     };
 
     function generateErrorElement(error) {
         return `
-            <p class="error-message js-error-message">Unable to add: ${error}<button id="error-cancel">Ok</button></p>`
+            <p class="error-message js-error-message">Unable to add:<br>${error}<button id="error-cancel">X</button></p>`
     };
 
     function generateDefaultButtonsElement() {
@@ -89,13 +72,13 @@ const bookmarksList = (function(){
         <div class="top-container js-top-container ">
         <button class="add-bookmark-button js-add-bookmark-button" type="button">Add Bookmark</button>
 
-        <label for="ratings-select" class="min-rating-label js-min-rating-label">Select Minimum Rating:
+        <label for="ratings-select" class="min-rating-label js-min-rating-label">Minimum Rating:
             <select id="ratings-select" name="min-ratings">
-                <option class="js-rating-selected" value="1" selected>1 Star</option> 
-                <option class="js-rating-selected" value="2" >2 Stars</option>
-                <option class="js-rating-selected" value="3">3 Stars</option>
-                <option class="js-rating-selected" value="4">4 Stars</option>
-                <option class="js-rating-selected" value="5">5 Stars</option>
+                <option class="js-rating-selected" value="1" selected>1</option> 
+                <option class="js-rating-selected" value="2" >2</option>
+                <option class="js-rating-selected" value="3">3</option>
+                <option class="js-rating-selected" value="4">4</option>
+                <option class="js-rating-selected" value="5">5</option>
             </select>
         </label>
     </div>`
@@ -117,16 +100,14 @@ const bookmarksList = (function(){
 
         if (store.adding) {
             $('.js-top-container').replaceWith(generateAddFormElement())
+        } else {
+            $('.js-add-form-container').replaceWith(generateDefaultButtonsElement());
         };
 
         if (store.error) {
             $('.js-error-container').html(generateErrorElement(store.error));
         } else {
             $('.js-error-container').empty();
-        };
-
-        if (!store.adding) {
-            $('.js-add-form-container').replaceWith(generateDefaultButtonsElement())
         };
 
         if (store.minRating !== 0) {

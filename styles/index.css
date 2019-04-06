@@ -3,8 +3,15 @@
 }
 
 body {
-    max-width: 600px;
     margin: 0 auto;
+}
+
+button:hover {
+    cursor: pointer;
+}
+  
+button:hover:disabled {
+    cursor: default;
 }
 
 .hidden {
@@ -12,14 +19,14 @@ body {
 }
 
 .top-container {
-    position: relative;
     height: fit-content;
-    width: 80%;
+    width: 100%;
+    margin: 0 auto;
 }
 
 .min-rating-label {
-    position: absolute;
-    right: 0px;
+    display: block;
+    margin-top: 10px;
 }
 
 #js-add-bookmark-form {
@@ -31,39 +38,36 @@ body {
     margin-bottom: 10px;
 }
 
-.url-container {
+.rating-container {
     position: absolute;
-    right: 0;
+    left: 60%;
     top: 0;
 }
 
-.rating-container {
-    position: absolute;
-    right: 0;
-    top: 25%;
+.bookmark-title-input, .bookmark-url-input, .bookmark-description-input, .bookmark-rating-input {
+    margin-top: 2px;
 }
 
-.bookmark-rating-input {
-    margin-top: 8px;
+.bookmark-title-input, .bookmark-url-input {
+    width: 50%;
+    height: 10%;
 }
 
 .bookmark-description-input {
-    width: 400px;
-    height: 100px;
+    width: 50%;
+    height: 20%;
 }
 
 .bookmarks-list {
     list-style-type: none;
-    width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 20px;
+    width: 80%;
+    margin-top: 25px;
     padding: 0;
 }
 
 .bookmark {
     border: 1px solid black;
-    width: 80%;
+    width: 100%;
     margin-bottom: 20px;
 }
 
@@ -100,10 +104,23 @@ body {
 }
 
 .error-message {
-    color: red;
+    background: yellow;
+    color: black;
     font-size: 16px;
+    border: 5px solid black;
+    max-width: 80%;
+    width: fit-content;
+    height: fit-content;
+    margin: 0;
+    padding: 5px;
+    position: relative;
+    text-align: center;
 }
 
 #error-cancel {
-    margin-left: 10px;
+    font-size: 12px;
+    position: absolute; 
+    top: 0;
+    right: 0;
 }
+
