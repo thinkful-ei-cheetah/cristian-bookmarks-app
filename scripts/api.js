@@ -28,8 +28,8 @@ const api = (function() {
         return fetchList(`${baseURL}/bookmarks`);
     };
 
-    const createBookmark = function(title, url, desc, rating) {
-        const newBookmark = JSON.stringify({title, url, desc, rating});
+    const createBookmark = function(newBookmark) {
+        // const newBookmark = JSON.stringify({newData});
 
         return fetchList(`${baseURL}/bookmarks`, {
             method: 'POST',
@@ -38,13 +38,13 @@ const api = (function() {
         });
     };
 
-    const updateBookmark = function(id, updateData) {
-        return fetchList(`${baseURL}/bookmarks/${id}`, {
-            method: 'PATCH',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(updateData)
-        });
-    };
+    // const updateBookmark = function(id, updateData) {
+    //     return fetchList(`${baseURL}/bookmarks/${id}`, {
+    //         method: 'PATCH',
+    //         headers: {'Content-Type': 'application/json'},
+    //         body: JSON.stringify(updateData)
+    //     });
+    // };
 
     const deleteBookmark = function(id) {
         return fetchList(`${baseURL}/bookmarks/${id}`, {method: 'DELETE'});
@@ -54,7 +54,6 @@ const api = (function() {
     return {
         getBookmarks,
         createBookmark,
-        updateBookmark,
         deleteBookmark,
     };
 
