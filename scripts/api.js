@@ -38,6 +38,14 @@ const api = (function() {
         });
     };
 
+    const updateBookmark = function(id, updateData) {
+        return fetchList(`${baseURL}/bookmarks/${id}`, {
+            method: 'PATCH',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(updateData)
+        });
+    };
+
     const deleteBookmark = function(id) {
         return fetchList(`${baseURL}/bookmarks/${id}`, {method: 'DELETE'});
     };
@@ -46,6 +54,7 @@ const api = (function() {
     return {
         getBookmarks,
         createBookmark,
+        updateBookmark,
         deleteBookmark,
     };
 

@@ -11,14 +11,10 @@ body {
     display: none;
 }
 
-.top-button-containers {
+.top-container {
     position: relative;
     height: fit-content;
-    width: 100%;
-}
-
-.add-bookmark-button {
-    position: absolute;
+    width: 80%;
 }
 
 .min-rating-label {
@@ -26,11 +22,61 @@ body {
     right: 0px;
 }
 
-.add-container {
-    position: absolute;
-    top: 100px;
+#js-add-bookmark-form > input {
+    margin-bottom: 10px;
 }
 
-.bookmark-description {
+.bookmark-rating-input {
+
+}
+
+.bookmark-description-input {
     width: 300px;
+}
+
+.bookmarks-list {
+    list-style-type: none;
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    padding: 0;
+}
+
+.bookmark {
+    border: 1px solid black;
+    width: 80%;
+    margin-bottom: 20px;
+}
+
+.bookmark > p {
+    padding: 10px;
+    margin: 0;
+}
+
+.bookmark-title, .bookmark-rating {
+    position: relative;
+}
+
+.bookmark-title {
+    margin-top: 0;
+    background-color: rgb(199, 194, 194);
+    width: 100%;
+}
+
+.bookmark-rating {
+    margin-bottom: 0;
+}
+
+.delete-button, .expand-button {
+    position: absolute;
+    right: 5px;
+}
+
+.delete-button {
+    top: 5px;
+}
+
+.expand-button {
+    bottom: 5px;
 }
